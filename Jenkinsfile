@@ -15,6 +15,10 @@ pipeline {
         stash(name: "stash test", includes: "target/**")
       }
     }
+    stage ('Approval') {
+      agent none
+      input(message: "Ok to continue?", ok: "Yes")
+    }
     stage ('Test') {
       steps {
         unstash "stash test"
