@@ -16,8 +16,10 @@ pipeline {
       }
     }
     stage ('Approval') {
-      agent none
-      input(message: "Ok to continue?", ok: "Yes")
+      steps {
+        agent none
+        input(message: "Ok to continue?", ok: "Yes") 
+      }
     }
     stage ('Test') {
       steps {
