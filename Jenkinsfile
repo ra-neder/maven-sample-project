@@ -11,7 +11,7 @@ pipeline {
     stage ('Build') {
       steps {
         sh "mvn clean install"
-        archiveArtifacts: "target/*.jar"
+        archiveArtifacts "target/*.jar"
         stash(name: "stash test", includes: "target/**")
       }
     }
